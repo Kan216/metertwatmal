@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NHHDP6N9');</script>
-<!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3TSDE9ZHG0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NHHDP6N9');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TSDE9ZHG0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-3TSDE9ZHG0');
-</script>
+      gtag('config', 'G-3TSDE9ZHG0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electricity Cost Calculator</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts for Burmese and English -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&family=Padauk:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -121,42 +116,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-left: 5px solid var(--secondary-color);
         }
 
-        #error-message {
+        #error-message, #error-message-2 {
             display: none;
             color: #ef4444; /* Red 500 */
+        }
+        .total-cost-result {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 0.5rem;
         }
     </style>
 </head>
 
 <body class="p-4 sm:p-8 flex items-center justify-center min-h-screen">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHHDP6N9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHHDP6N9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="app-container" class="w-full max-w-2xl mx-auto lang-my">
-        <!-- Header -->
         <header class="text-center mb-6">
-            <h1 id="app-title" class="text-3xl sm:text-4xl font-bold text-primary-color mb-2">လျှပ်စစ်မီတာခ တွက်ချက်ရန်</h1>
+            <h1 id="app-title" class="text-3xl sm:text-4xl font-bold" style="color: var(--primary-color);">လျှပ်စစ်မီတာခ တွက်ချက်ရန်</h1>
             <p id="app-subtitle" class="text-slate-500">နေ့စဉ်၊ လစဉ်၊ နှစ်စဉ်ကုန်ကျစရိတ်ကို အလွယ်တကူရှာပါ</p>
         </header>
         
-        <!-- Language Toggle -->
         <div class="flex justify-end mb-4">
             <button id="lang-toggle" class="btn-lang py-2 px-4 rounded-lg shadow-md font-bold transition-transform duration-200 hover:scale-105">English</button>
         </div>
 
         <div class="calculator-card p-6 sm:p-8">
-            <!-- Input Section -->
             <div id="input-section" class="mb-6">
-                <h2 id="input-title" class="text-2xl font-bold mb-4 border-b-2 border-slate-200 pb-2">အချက်အလက်များ ထည့်သွင်းပါ</h2>
+                <h2 id="input-title" class="text-2xl font-bold mb-4 border-b-2 border-slate-200 pb-2">အချက်အလက်များ ထည့်သွင်းပါ</h2>
                 <div class="space-y-4">
                     <div>
                         <label id="watt-label" for="watt" class="block mb-1 font-bold text-slate-700">ဝပ် (Watt)</label>
                         <input type="number" id="watt" class="form-input w-full p-3 rounded-lg" placeholder="ဥပမာ: 100">
                     </div>
                     <div>
-                        <label id="hours-label" for="hours" class="block mb-1 font-bold text-slate-700">တစ်နေ့အသုံးပြုသည့်နာရီ</label>
+                        <label id="hours-label" for="hours" class="block mb-1 font-bold text-slate-700">တစ်နေ့အသုံးပြုသည့်နာရီ</label>
                         <input type="number" id="hours" class="form-input w-full p-3 rounded-lg" placeholder="ဥပမာ: 8">
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -179,39 +173,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <!-- Error Message -->
             <p id="error-message" class="text-center font-bold mb-4"></p>
 
-            <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 mb-8">
                 <button id="calculate-btn" class="btn-primary w-full py-3 rounded-lg text-lg font-bold">တွက်မည်</button>
                 <button id="reset-btn" class="btn-secondary w-full py-3 rounded-lg text-lg font-bold">ပြန်စမည်</button>
             </div>
 
-            <!-- Results Section -->
             <div id="results-section" class="hidden">
                 <h2 id="results-title" class="text-2xl font-bold mb-4 border-b-2 border-slate-200 pb-2">ရလဒ်များ</h2>
                 <div class="results-grid">
                     <div class="result-item p-4 rounded-lg text-center">
                         <h3 id="daily-title" class="text-lg font-bold text-slate-600 mb-1">နေ့စဉ်</h3>
                         <p id="daily-units" class="text-xl text-slate-800 font-semibold"></p>
-                        <p id="daily-cost" class="text-2xl font-bold text-primary-color"></p>
+                        <p id="daily-cost" class="text-2xl font-bold" style="color: var(--primary-color);"></p>
                     </div>
                     <div class="result-item p-4 rounded-lg text-center">
                         <h3 id="monthly-title" class="text-lg font-bold text-slate-600 mb-1">လစဉ်</h3>
                         <p id="monthly-units" class="text-xl text-slate-800 font-semibold"></p>
-                        <p id="monthly-cost" class="text-2xl font-bold text-primary-color"></p>
+                        <p id="monthly-cost" class="text-2xl font-bold" style="color: var(--primary-color);"></p>
                     </div>
                     <div class="result-item p-4 rounded-lg text-center">
                         <h3 id="yearly-title" class="text-lg font-bold text-slate-600 mb-1">နှစ်စဉ်</h3>
                         <p id="yearly-units" class="text-xl text-slate-800 font-semibold"></p>
-                        <p id="yearly-cost" class="text-2xl font-bold text-primary-color"></p>
+                        <p id="yearly-cost" class="text-2xl font-bold" style="color: var(--primary-color);"></p>
                     </div>
                 </div>
             </div>
+            
+            <hr class="my-8 border-t-2 border-slate-200">
+
+            <div id="total-cost-section">
+                <h2 id="total-calc-title" class="text-2xl font-bold mb-4 border-b-2 border-slate-200 pb-2">စုစုပေါင်းကျသင့်ငွေ တွက်ရန်</h2>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label id="total-units-label" for="total-units" class="block mb-1 font-bold text-slate-700">စုစုပေါင်း ယူနစ် (kWh)</label>
+                            <input type="number" id="total-units" class="form-input w-full p-3 rounded-lg" placeholder="ဥပမာ: 150">
+                        </div>
+                        <div>
+                            <label id="cost-per-unit-2-label" for="cost-per-unit-2" class="block mb-1 font-bold text-slate-700">တစ်ယူနစ်ဈေးနှုန်း</label>
+                            <input type="number" id="cost-per-unit-2" class="form-input w-full p-3 rounded-lg" placeholder="ဥပမာ: 120">
+                        </div>
+                    </div>
+                </div>
+                <p id="error-message-2" class="text-center font-bold my-4"></p>
+
+                <div class="mt-6 mb-4">
+                     <button id="calculate-total-btn" class="btn-primary w-full py-3 rounded-lg text-lg font-bold">စုစုပေါင်းငွေ တွက်မည်</button>
+                </div>
+
+                <div id="total-cost-result-container" class="hidden text-center p-4 total-cost-result">
+                    <h3 id="total-cost-title" class="text-xl font-bold"></h3>
+                    <p id="total-cost-amount" class="text-3xl font-bold"></p>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Footer -->
         <footer class="text-center mt-8 text-slate-500">
             <p id="footer-text">© 2025 - All Rights Reserved</p>
         </footer>
@@ -219,29 +238,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // DOM Elements
+            // --- DOM Elements ---
             const appContainer = document.getElementById('app-container');
             const langToggleButton = document.getElementById('lang-toggle');
-            const calculateBtn = document.getElementById('calculate-btn');
+            const currencySelector = document.getElementById('currency-selector');
             const resetBtn = document.getElementById('reset-btn');
+
+            // Calculator 1 Elements
+            const calculateBtn = document.getElementById('calculate-btn');
             const resultsSection = document.getElementById('results-section');
             const errorMessage = document.getElementById('error-message');
-
             const wattInput = document.getElementById('watt');
             const hoursInput = document.getElementById('hours');
             const costInput = document.getElementById('cost');
-            const currencySelector = document.getElementById('currency-selector');
 
-            // --- Language & Currency Management ---
+            // Calculator 2 Elements
+            const calculateTotalBtn = document.getElementById('calculate-total-btn');
+            const totalUnitsInput = document.getElementById('total-units');
+            const costPerUnit2Input = document.getElementById('cost-per-unit-2');
+            const errorMessage2 = document.getElementById('error-message-2');
+            const totalCostResultContainer = document.getElementById('total-cost-result-container');
+            const totalCostAmount = document.getElementById('total-cost-amount');
+
+
+            // --- Language & Translations ---
             const translations = {
                 my: {
                     title: "လျှပ်စစ်မီတာခ တွက်ချက်ရန်",
                     subtitle: "နေ့စဉ်၊ လစဉ်၊ နှစ်စဉ်ကုန်ကျစရိတ်ကို အလွယ်တကူရှာပါ",
                     langToggle: "English",
-                    inputTitle: "အချက်အလက်များ ထည့်သွင်းပါ",
+                    inputTitle: "အချက်အလက်များ ထည့်သွင်းပါ",
                     wattLabel: "ဝပ် (Watt)",
                     wattPlaceholder: "ဥပမာ: 100",
-                    hoursLabel: "တစ်နေ့အသုံးပြုသည့်နာရီ",
+                    hoursLabel: "တစ်နေ့အသုံးပြုသည့်နာရီ",
                     hoursPlaceholder: "ဥပမာ: 8",
                     costLabel: "တစ်ယူနစ်ဈေးနှုန်း (Optional)",
                     costPlaceholder: "ဥပမာ: 120",
@@ -253,7 +282,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     monthlyTitle: "လစဉ်",
                     yearlyTitle: "နှစ်စဉ်",
                     errorMessage: "ကျေးဇူးပြု၍ ဝပ် နှင့် နာရီကို မှန်ကန်စွာဖြည့်စွက်ပါ။",
-                    footerText: "© ၂၀၂၅ - အခွင့်အရေးအားလုံးကို သိမ်းဆည်းထားသည်။"
+                    footerText: "© ၂၀၂၅ - အခွင့်အရေးအားလုံးကို သိမ်းဆည်းထားသည်။",
+                    // New translations for calculator 2
+                    totalCalcTitle: "စုစုပေါင်းကျသင့်ငွေ တွက်ရန်",
+                    totalUnitsLabel: "စုစုပေါင်း ယူနစ် (kWh)",
+                    totalUnitsPlaceholder: "ဥပမာ: 150",
+                    costPerUnit2Label: "တစ်ယူနစ်ဈေးနှုန်း",
+                    calculateTotalBtn: "စုစုပေါင်းငွေ တွက်မည်",
+                    totalCostTitle: "ကျသင့်ငွေ စုစုပေါင်း",
+                    errorMessage2: "ကျေးဇူးပြု၍ စုစုပေါင်းယူနစ် နှင့် ဈေးနှုန်းကို မှန်ကန်စွာဖြည့်စွက်ပါ။"
                 },
                 en: {
                     title: "Electricity Cost Calculator",
@@ -274,7 +311,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     monthlyTitle: "Monthly",
                     yearlyTitle: "Yearly",
                     errorMessage: "Please fill in Wattage and Hours with valid numbers.",
-                    footerText: "© 2025 - All Rights Reserved"
+                    footerText: "© 2025 - All Rights Reserved",
+                    // New translations for calculator 2
+                    totalCalcTitle: "Calculate Total Cost",
+                    totalUnitsLabel: "Total Units (kWh)",
+                    totalUnitsPlaceholder: "e.g., 150",
+                    costPerUnit2Label: "Cost Per Unit",
+                    calculateTotalBtn: "Calculate Total Amount",
+                    totalCostTitle: "Total Amount Due",
+                    errorMessage2: "Please fill in Total Units and Cost Per Unit with valid numbers."
                 }
             };
             
@@ -308,6 +353,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 document.getElementById('yearly-title').textContent = t.yearlyTitle;
                 errorMessage.textContent = t.errorMessage;
                 document.getElementById('footer-text').textContent = t.footerText;
+                
+                // Set language for new elements
+                document.getElementById('total-calc-title').textContent = t.totalCalcTitle;
+                document.getElementById('total-units-label').textContent = t.totalUnitsLabel;
+                document.getElementById('total-units').placeholder = t.totalUnitsPlaceholder;
+                document.getElementById('cost-per-unit-2-label').textContent = t.costPerUnit2Label;
+                costPerUnit2Input.placeholder = t.costPlaceholder;
+                calculateTotalBtn.textContent = t.calculateTotalBtn;
+                document.getElementById('total-cost-title').textContent = t.totalCostTitle;
+                errorMessage2.textContent = t.errorMessage2;
             }
 
             langToggleButton.addEventListener('click', () => {
@@ -320,6 +375,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 if (resultsSection.style.display === 'block') {
                     calculateCost();
                 }
+                if (totalCostResultContainer.style.display !== 'none') {
+                    calculateTotalCost();
+                }
             });
             
             // --- Calculation Logic ---
@@ -327,13 +385,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             function formatNumber(num, decimalPlaces = 2) {
                 return num.toLocaleString('en-US', { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
             }
-
+            
+            // CALCULATION 1: By Wattage
             function calculateCost() {
-                // 1. Get and validate primary inputs (Watt and Hours)
                 const watt = parseFloat(wattInput.value);
                 const hours = parseFloat(hoursInput.value);
 
-                if (isNaN(watt) || isNaN(hours) || watt <= 0 || hours <= 0) {
+                if (isNaN(watt) || isNaN(hours) || watt <= 0 || hours <= 0 || hours > 24) {
+                    errorMessage.textContent = translations[currentLang].errorMessage;
                     errorMessage.style.display = 'block';
                     resultsSection.style.display = 'none';
                     return;
@@ -341,55 +400,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 errorMessage.style.display = 'none';
 
-                // 2. Calculate energy consumption (kWh)
                 const dailyUnits = (watt * hours) / 1000;
                 const monthlyUnits = dailyUnits * 30;
                 const yearlyUnits = dailyUnits * 365;
 
-                // 3. Display energy consumption
                 document.getElementById('daily-units').textContent = `${formatNumber(dailyUnits, 3)} kWh`;
                 document.getElementById('monthly-units').textContent = `${formatNumber(monthlyUnits, 2)} kWh`;
                 document.getElementById('yearly-units').textContent = `${formatNumber(yearlyUnits, 2)} kWh`;
 
-                // 4. Get optional cost input
                 const costPerUnit = parseFloat(costInput.value);
-
-                // 5. Calculate and display cost if provided
                 const dailyCostEl = document.getElementById('daily-cost');
                 const monthlyCostEl = document.getElementById('monthly-cost');
                 const yearlyCostEl = document.getElementById('yearly-cost');
 
-                if (!isNaN(costPerUnit) && costPerUnit > 0) {
+                if (!isNaN(costPerUnit) && costPerUnit >= 0) {
                     const selectedCurrency = currencySelector.value;
                     const currencySymbols = { MMK: 'Ks', USD: '$', EUR: '€', INR: '₹', SGD: 'S$', THB: '฿' };
                     const displaySymbol = currencySymbols[selectedCurrency] || selectedCurrency;
 
-                    const dailyCost = dailyUnits * costPerUnit;
-                    const monthlyCost = monthlyUnits * costPerUnit;
-                    const yearlyCost = yearlyUnits * costPerUnit;
-
-                    dailyCostEl.textContent = `${displaySymbol} ${formatNumber(dailyCost)}`;
-                    monthlyCostEl.textContent = `${displaySymbol} ${formatNumber(monthlyCost)}`;
-                    yearlyCostEl.textContent = `${displaySymbol} ${formatNumber(yearlyCost)}`;
+                    dailyCostEl.textContent = `${displaySymbol} ${formatNumber(dailyUnits * costPerUnit)}`;
+                    monthlyCostEl.textContent = `${displaySymbol} ${formatNumber(monthlyUnits * costPerUnit)}`;
+                    yearlyCostEl.textContent = `${displaySymbol} ${formatNumber(yearlyUnits * costPerUnit)}`;
                 } else {
-                    // Clear cost fields if no valid cost is entered
                     dailyCostEl.textContent = '';
                     monthlyCostEl.textContent = '';
                     yearlyCostEl.textContent = '';
                 }
                 
-                // 6. Show the results section
                 resultsSection.style.display = 'block';
+            }
+            
+            // CALCULATION 2: By Total Units
+            function calculateTotalCost() {
+                const totalUnits = parseFloat(totalUnitsInput.value);
+                const costPerUnit = parseFloat(costPerUnit2Input.value);
+
+                if (isNaN(totalUnits) || isNaN(costPerUnit) || totalUnits <= 0 || costPerUnit < 0) {
+                    errorMessage2.textContent = translations[currentLang].errorMessage2;
+                    errorMessage2.style.display = 'block';
+                    totalCostResultContainer.style.display = 'none';
+                    return;
+                }
+                
+                errorMessage2.style.display = 'none';
+
+                const totalAmount = totalUnits * costPerUnit;
+                const selectedCurrency = currencySelector.value;
+                const currencySymbols = { MMK: 'Ks', USD: '$', EUR: '€', INR: '₹', SGD: 'S$', THB: '฿' };
+                const displaySymbol = currencySymbols[selectedCurrency] || selectedCurrency;
+
+                totalCostAmount.textContent = `${displaySymbol} ${formatNumber(totalAmount)}`;
+                totalCostResultContainer.style.display = 'block';
             }
 
             calculateBtn.addEventListener('click', calculateCost);
+            calculateTotalBtn.addEventListener('click', calculateTotalCost);
 
             resetBtn.addEventListener('click', () => {
+                // Clear calculator 1
                 wattInput.value = '';
                 hoursInput.value = '';
                 costInput.value = '';
                 resultsSection.style.display = 'none';
                 errorMessage.style.display = 'none';
+                
+                // Clear calculator 2
+                totalUnitsInput.value = '';
+                costPerUnit2Input.value = '';
+                totalCostResultContainer.style.display = 'none';
+                errorMessage2.style.display = 'none';
+                
                 wattInput.focus();
             });
 
